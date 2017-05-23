@@ -1,17 +1,33 @@
 # backup-scripts
 TSM backup scripts for the edx platform
 
-Use in a crontab like so:
+Requires a fully set-up TSM environment. 
 
-    crontab -e
+Add a backup user:
 
-    # Weekly Backup
-    0 5 * * 1 cd ~ && ./scripts/export-all.sh backup && ./scripts/backup-tivoli.sh .
+    adduser --disabled-password --gecos "" backup-tivoli
+    su backup-tivoli
+    cd ~
+    git clone git@github.com:TeachAtTUM/backup-scripts.git scripts
+    
+Make TSM.PWD readable: 
 
-Don't forget to setup a ~/.my.cnf for the mysql dumps:
+    sudo chown backup-tivoli: /etc/adsm/TSM.PWD
+    chmod u+r /etc/adsm/TSM.PWD
 
+Set up a ~/.my.cnf for the mysql dumps:
+
+    su backup-tivoli
     nano ~/.my.cnf
     
     [mysqldump]
     user=backup
     password=mypass
+
+Use in a crontab like so:
+
+    su backup-tivoli
+    crontab -e
+
+    # Weekly Backup
+    0 5 * * 1 cd ~ && ./scripts/export-all.sh backup && ./scripts/backup-tivoli.sh .
