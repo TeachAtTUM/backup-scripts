@@ -8,7 +8,7 @@ Add a backup user:
     adduser --disabled-password --gecos "" backup-tivoli
     su backup-tivoli
     cd ~
-    git clone git@github.com:TeachAtTUM/backup-scripts.git scripts
+    git clone https://github.com/TeachAtTUM/backup-scripts.git scripts
     
 Make TSM.PWD readable: 
 
