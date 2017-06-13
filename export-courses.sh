@@ -1,3 +1,9 @@
+if (( $# != 1 ))
+then
+  echo "Please supply a backup directory"
+  exit 1
+fi
+
 DUMP_DIR=$1
 mkdir $DUMP_DIR
 
