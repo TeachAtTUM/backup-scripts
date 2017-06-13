@@ -1,3 +1,9 @@
+if (( $# != 1 ))
+then
+  echo "Please supply a backup directory"
+  exit 1
+fi
+
 MYSQL_USER="root"
 
 DUMP_DIR=$1
