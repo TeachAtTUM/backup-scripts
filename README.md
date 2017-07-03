@@ -30,4 +30,4 @@ Use in a crontab like so:
     crontab -e
 
     # Weekly Backup
-    0 5 * * 1 ./scripts/export-all.sh backup && ./scripts/backup-tivoli.sh .
+    0 5 * * 1 /bin/bash ./scripts/export-all.sh backup && /bin/bash ./scripts/backup-tivoli.sh .
