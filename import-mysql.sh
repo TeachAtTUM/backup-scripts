@@ -9,6 +9,7 @@ MYSQL_USER="root"
 DUMP_DIR=$1
 if [ ! -f $DUMP_DIR ]; then
     echo "Backup directory not found!"
+    return 1;
 fi
 
 # edxapp
