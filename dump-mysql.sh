@@ -28,3 +28,7 @@ mysqldump -u "$MYSQL_USER" mysql > $DUMP_DIR/mysql.sql
 # Analytics
 mysqldump -u "$MYSQL_USER" analytics > $DUMP_DIR/analytics.sql
 mysqldump -u "$MYSQL_USER" analytics-api > $DUMP_DIR/analytics-api.sql
+
+
+# Mongo
+mongodump -o $DUMP_DIR/mongo

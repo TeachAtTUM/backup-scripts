@@ -39,3 +39,8 @@ echo "CREATE SCHEMA analytics" | mysql -u "$MYSQL_USER"
 mysql -u "$MYSQL_USER" analytics < $DUMP_DIR/analytics.sql
 echo "CREATE SCHEMA \`analytics-api\`" | mysql -u "$MYSQL_USER" 
 mysql -u "$MYSQL_USER" analytics-api < $DUMP_DIR/analytics-api.sql
+
+
+# Mongo
+
+mongorestore --drop $DUMP_DIR/mongo
