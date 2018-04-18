@@ -4,7 +4,7 @@ then
   exit 1
 fi
 
-MYSQL_USER="root"
+MYSQL_USER="backup"
 
 DUMP_DIR=$1
 mkdir $DUMP_DIR
