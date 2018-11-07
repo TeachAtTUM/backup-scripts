@@ -31,4 +31,7 @@ mysqldump -u "$MYSQL_USER" analytics-api > $DUMP_DIR/analytics-api.sql
 
 
 # Mongo
-mongodump -o $DUMP_DIR/mongo
+#mongodump -o $DUMP_DIR/mongo
+# Contains MONGO_PASSWORD=my_password
+. ~/.appsecrets
+echo $MONGO_PASSWORD | mongodump -o $DUMP_DIR/mongo --authenticationDatabase admin -u admin -p
